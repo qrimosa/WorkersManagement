@@ -11,10 +11,11 @@ namespace WorkersManagement
     public class AppDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=users.db");
+            optionsBuilder.UseSqlite("Data Source=appdata.db");
         }
     }
 }

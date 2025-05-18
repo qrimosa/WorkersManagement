@@ -19,7 +19,6 @@
             </Setter>
         </Style>
 
-        <!-- Rounded PasswordBox Style -->
         <Style x:Key="RoundedPasswordBoxStyle" TargetType="PasswordBox">
             <Setter Property="Template">
                 <Setter.Value>
@@ -35,7 +34,6 @@
             </Setter>
         </Style>
 
-        <!-- Rounded Button Style -->
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -49,6 +47,44 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        
+        <Style TargetType="TextBox" x:Key="PlaceholderTextBoxStyle">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#2D2D40"/>
+            
+        </Style>
+
+        <Style TargetType="Button" x:Key="RoundedButtonStyle2">
+            <Setter Property="Background" Value="#FFEA4C89"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        CornerRadius="10"
+                        Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ComboBox" x:Key="StyledComboBox">
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="Background" Value="#2D2D40"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="4,2"/>
+            <Setter Property="BorderThickness" Value="0"/>
         </Style>
     </Application.Resources>
 </Application>
