@@ -5,49 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkersManagement"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="#FF1E1E2F">
-    <Grid>
-        <!-- Gradient Top Banner -->
-        <Border Height="80" VerticalAlignment="Top" Background ="Aquamarine" CornerRadius="0,0,20,20">
-            <TextBlock Text="EmpiSoft" FontSize="26" FontWeight="Bold" 
-                       Foreground="White" VerticalAlignment="Center"
-                       HorizontalAlignment="Center"/>
-        </Border>
+        Title="Window1" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Border CornerRadius="15" Background="#FF1E1E2E">
+        <Grid>
+            <!-- Header with Gradient -->
+            <Border Height="80" VerticalAlignment="Top" CornerRadius="0,0,20,20">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#8A2BE2" Offset="0.0"/>
+                        <GradientStop Color="#FF1493" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
 
-        <!-- Icon Buttons -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,40,0,0">
-            <!-- Employee -->
-            <StackPanel Margin="30" Width="100" Cursor="Hand">
-                <Viewbox Width="60" Height="60">
-                    <Canvas>
-                        <Path Fill="OrangeRed" Data="M20,10 C20,4.48 24.48,0 30,0 C35.52,0 40,4.48 40,10 C40,15.52 35.52,20 30,20 C24.48,20 20,15.52 20,10 Z M15,25 C15,22.24 20.48,20 30,20 C39.52,20 45,22.24 45,25 L45,40 L15,40 Z"/>
-                    </Canvas>
-                </Viewbox>
-                <TextBlock Text="Employee" Foreground="White" FontSize="14" HorizontalAlignment="Center" Margin="5"/>
-            </StackPanel>
+                <Image Source="/Assets/logo.png"
+                   Width="150"
+                   Height="100"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+            </Border>
 
-            <!-- View -->
-            <StackPanel Margin="30" Width="100" Cursor="Hand">
-                <Viewbox Width="60" Height="60">
-                    <Canvas>
-                        <Path Fill="OrangeRed" Data="M0,0 L40,0 L40,40 L0,40 Z M10,10 L30,10 L30,30 L10,30 Z"/>
-                        <Ellipse Fill="OrangeRed" Width="12" Height="12" Canvas.Left="14" Canvas.Top="14"/>
-                    </Canvas>
-                </Viewbox>
-                <TextBlock Text="View" Foreground="White" FontSize="14" HorizontalAlignment="Center" Margin="5"/>
-            </StackPanel>
+            <!-- Close Button (Top Right) -->
+            <Button x:Name="CloseButton"
+                Content="X"
+                Width="30"
+                Height="30"
+                Background="#FF1E1E2E"
+                Foreground="White"
+                FontWeight="Bold"
+                BorderBrush="Transparent"
+                Cursor="Hand"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 5 5 0"
+                Click="CloseButton_Click"/>
 
-            <!-- Salary -->
-            <StackPanel Margin="30" Width="100" Cursor="Hand">
-                <Viewbox Width="60" Height="60">
-                    <Canvas>
-                        <Path Fill="OrangeRed" Data="M0,0 L50,0 L50,40 L0,40 Z M10,10 L40,10 M10,20 L30,20 M10,30 L20,30"/>
-                        <TextBlock Text="$" Foreground="White" FontWeight="Bold"
-                                   FontSize="18" Canvas.Left="35" Canvas.Top="25"/>
-                    </Canvas>
-                </Viewbox>
-                <TextBlock Text="Salary" Foreground="White" FontSize="14" HorizontalAlignment="Center" Margin="5"/>
+            <!-- Logout Button (Top Left) -->
+            <Button x:Name="LogoutButton"
+                Content="Logout"
+                Height="30"
+                Background="#FF1E1E2E"
+                Foreground="White"
+                FontWeight="Bold"
+                BorderBrush="Transparent"
+                Cursor="Hand"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 5 40 0"
+                Click="LogoutButton_Click"/>
+
+            <!-- Icon Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,40,0,0">
+
+                <!-- Employee Button -->
+                <Button Width="100" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Click="EmployeeButton_Click">
+                    <StackPanel>
+                        <Image Source="Assets/employee_icon.png" Width="95" Height="95" Margin="0,0,0,5"/>
+                        <TextBlock Text="Employee" Foreground="White" FontSize="20" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- View Button -->
+                <Button Width="100" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Margin="40,0,40,0" Click="ViewButton_Click">
+                    <StackPanel>
+                        <Image Source="/Assets/view_icon.png" Width="100" Height="100"/>
+                        <TextBlock Text="View" Foreground="White" FontSize="20" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Salary Button -->
+                <Button Width="100" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Click="SalaryButton_Click">
+                    <StackPanel>
+                        <Image Source="/Assets/salary_icon.png" Width="100" Height="100"/>
+                        <TextBlock Text="Salary" Foreground="White" FontSize="20" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
             </StackPanel>
-        </StackPanel>
-    </Grid>
+        </Grid>
+    </Border>
 </Window>

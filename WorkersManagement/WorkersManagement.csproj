@@ -9,8 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\employee_icon.png" />
     <None Remove="Assets\logo.png" />
+    <None Remove="Assets\salary_icon.png" />
     <None Remove="Assets\supervisor.png" />
+    <None Remove="Assets\view_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,10 +26,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\employee_icon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\salary_icon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\supervisor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\view_icon.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
