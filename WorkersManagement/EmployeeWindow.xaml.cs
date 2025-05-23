@@ -37,6 +37,25 @@ namespace WorkersManagement
             this.Close();
         }
 
+        private bool IsFormValid()
+        {
+            if (string.IsNullOrWhiteSpace(EmpIdTextBox.Text) ||
+                string.IsNullOrWhiteSpace(EmpNameTextBox.Text) ||
+                string.IsNullOrWhiteSpace(EmpAddressTextBox.Text) ||
+                string.IsNullOrWhiteSpace(EmpPhoneTextBox.Text))
+                return false;
+
+            if (EmpGenderComboBox.SelectedItem == null ||
+                EmpPositionComboBox.SelectedItem == null ||
+                EmpEducationComboBox.SelectedItem == null)
+                return false;
+
+            if (!EmpDOBPicker.SelectedDate.HasValue)
+                return false;
+
+            return true;
+        }
+
         private void ClearForm()
         {
             EmpIdTextBox.Text = string.Empty;
@@ -51,6 +70,11 @@ namespace WorkersManagement
 
         private void AddEmployee_Click(object sender, RoutedEventArgs e)
         {
+            if (!IsFormValid())
+            {
+                MessageBox.Show("Please fill out all fields before adding an employee.", "Missing Data", MessageBoxButton.OK, MessageBoxImage.Warning); ;
+                return;
+            }
             var emp = new Employee
             {
                 EmployeeId = EmpIdTextBox.Text,
