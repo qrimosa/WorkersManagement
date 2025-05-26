@@ -13,8 +13,15 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" Margin="10" VerticalAlignment="Top">
-                <TextBlock Text="Manage Employees" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,20"/>
+            <StackPanel Grid.Column="0" Margin ="5" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20">
+                    <Image Source="/Assets/employee_icon.png" Width="30" Height="30" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <TextBlock Text="Manage Employees" 
+                               FontSize="24" 
+                               FontWeight="Bold" 
+                               Foreground="White" 
+                               VerticalAlignment="Center"/>
+                </StackPanel>
 
                 <TextBlock Text="Employee ID" Foreground="White" FontSize="12" Margin="0 0 0 0"/>
                 <TextBox x:Name="EmpIdTextBox" Style="{StaticResource PlaceholderTextBoxStyle}" Margin="0,5" />
@@ -25,25 +32,25 @@
                 <TextBlock Text="Employee Address" Foreground="White" FontSize="12" Margin="0 0 0 0"/>
                 <TextBox x:Name="EmpAddressTextBox" Style="{StaticResource PlaceholderTextBoxStyle}" Margin="0,5"/>
 
-                <ComboBox x:Name="EmpGenderComboBox" IsEditable="True" IsReadOnly="True" Text="Select an Employee Gender" Style="{StaticResource StyledComboBox}">
+                <ComboBox x:Name="EmpGenderComboBox" Text="Select an Employee Gender" Style="{StaticResource StyledComboBox}">
                     <ComboBoxItem Content="Male"/>
                     <ComboBoxItem Content="Female"/>
                 </ComboBox>
 
-                <ComboBox x:Name="EmpPositionComboBox" IsEditable="True" IsReadOnly="True" Text="Select an Employee Position" Style="{StaticResource StyledComboBox}">
+                <ComboBox x:Name="EmpPositionComboBox" Text="Select an Employee Position" Style="{StaticResource StyledComboBox}">
                     <ComboBoxItem Content="Manager"/>
                     <ComboBoxItem Content="Accountant"/>
                     <ComboBoxItem Content="Receptionist"/>
                 </ComboBox>
 
                 <StackPanel Orientation="Horizontal" Margin="0,5" >
-                    <DatePicker x:Name="EmpDOBPicker" Width="300"/>
+                    <DatePicker x:Name="EmpDOBPicker" Width="312"/>
                 </StackPanel>
 
                 <TextBlock Text="Employee Phone Number" Foreground="White" FontSize="12" Margin="0 10 0 0"/>
                 <TextBox x:Name="EmpPhoneTextBox" Style="{StaticResource PlaceholderTextBoxStyle}" Margin="0,5"/>
 
-                <ComboBox x:Name="EmpEducationComboBox" IsEditable="True" IsReadOnly="True" Text="Select an Employee Education" Style="{StaticResource StyledComboBox}">
+                <ComboBox x:Name="EmpEducationComboBox" Text="Select an Employee Education" Style="{StaticResource StyledComboBox}">
                     <ComboBoxItem Content="BCA"/>
                     <ComboBoxItem Content="MBA"/>
                     <ComboBoxItem Content="MTech"/>

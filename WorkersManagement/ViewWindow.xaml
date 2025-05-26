@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkersManagement"
         mc:Ignorable="d"
-        Title="View Employee" Height="450" Width="800"
+        Title="View Employee" Height="550" Width="800"
         WindowStartupLocation="CenterScreen"
         Background="#FF1E1E2E" WindowStyle="None" AllowsTransparency="True">
     <Grid>
@@ -25,7 +25,7 @@
         <StackPanel Margin="30,65,30,7">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                 <TextBlock Text="Employee ID:" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                <TextBox x:Name="SearchIdTextBox" Width="200" Margin="0,0,10,0"/>
+                <TextBox x:Name="SearchIdTextBox" Width="200" Style="{StaticResource PlaceholderTextBoxStyle}" Margin="0,0,10,0"/>
                 <Button Content="Search" Click="SearchButton_Click" Style="{StaticResource RoundedButtonStyle2}"/>
             </StackPanel>
 
@@ -46,31 +46,31 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Employee ID:" Foreground="White" Margin="0,10"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="IdText" Foreground="White" Margin="0,10"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" FontSize="18" HorizontalAlignment="Center" x:Name="IdText" Foreground="White" Margin="0,10"/>
 
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Name:" Foreground="White" Margin="0,10"/>
-                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="NameText" Foreground="White" Margin="0,10"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" FontSize="18" HorizontalAlignment="Center" x:Name="NameText" Foreground="White" Margin="0,10"/>
 
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Address:" Foreground="White" Margin="0,10"/>
-                <TextBlock Grid.Row="2" Grid.Column="1" x:Name="AddressText" Foreground="White" Margin="0,10"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" FontSize="18" HorizontalAlignment="Center" x:Name="AddressText" Foreground="White" Margin="0,10"/>
 
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="Gender:" Foreground="White" Margin="0,10"/>
-                <TextBlock Grid.Row="3" Grid.Column="1" x:Name="GenderText" Foreground="White" Margin="0,10"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" FontSize="18" HorizontalAlignment="Center" x:Name="GenderText" Foreground="White" Margin="0,10"/>
 
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="Position:" Foreground="White" Margin="0,10"/>
-                <TextBlock Grid.Row="4" Grid.Column="1" x:Name="PositionText" Foreground="White" Margin="0,10"/>
+                <TextBlock Grid.Row="4" Grid.Column="1" FontSize="18" HorizontalAlignment="Center" x:Name="PositionText" Foreground="White" Margin="0,10"/>
 
                 <TextBlock Grid.Row="5" Grid.Column="0" Text="Date of Birth:" Foreground="White" Margin="0,10"/>
-                <TextBlock Grid.Row="5" Grid.Column="1" x:Name="DOBText" Foreground="White" Margin="0,10"/>
+                <TextBlock Grid.Row="5" Grid.Column="1" FontSize="18" HorizontalAlignment="Center" x:Name="DOBText" Foreground="White" Margin="0,10"/>
 
                 <TextBlock Grid.Row="6" Grid.Column="0" Text="Phone:" Foreground="White" Margin="0,10"/>
-                <TextBlock Grid.Row="6" Grid.Column="1" x:Name="PhoneText" Foreground="White" Margin="0,10"/>
+                <TextBlock Grid.Row="6" Grid.Column="1" FontSize="18" HorizontalAlignment="Center" x:Name="PhoneText" Foreground="White" Margin="0,10"/>
 
                 <TextBlock Grid.Row="7" Grid.Column="0" Text="Education:" Foreground="White" Margin="0,10"/>
-                <TextBlock Grid.Row="7" Grid.Column="1" x:Name="EducationText" Foreground="White" Margin="0,10"/>
+                <TextBlock Grid.Row="7" Grid.Column="1" FontSize="18"  HorizontalAlignment="Center" x:Name="EducationText" Foreground="White" Margin="0,10"/>
             </Grid>
 
-            <Button Content="Home" HorizontalAlignment="Center" Margin="0,0,0,0"
+            <Button Content="Home" HorizontalAlignment="Center" Margin="0,30,0,0"
                     Style="{StaticResource RoundedButtonStyle2}" Click="HomeButton_Click" Width="133"/>
         </StackPanel>
     </Grid>

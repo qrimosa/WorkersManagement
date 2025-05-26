@@ -48,16 +48,27 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <Style TargetType="TextBox" x:Key="PlaceholderTextBoxStyle">
-            <Setter Property="Height" Value="30" />
+            <Setter Property="Height" Value="25" />
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Margin" Value="0,5"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Background" Value="#2D2D40"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="12"/>
-
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                        CornerRadius="4"
+                        Padding="4"
+                        SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style TargetType="Button" x:Key="RoundedButtonStyle2">
@@ -80,13 +91,97 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+            <Border x:Name="Border"
+                Background="{TemplateBinding Background}"
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                Padding="4">
+            <Path x:Name="Arrow"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="M 0 0 L 4 4 L 8 0 Z"
+                    Fill="White"
+                    Width="8"
+                    Height="4" />
+            </Border>
+        </ControlTemplate>
+
         <Style TargetType="ComboBox" x:Key="StyledComboBox">
-            <Setter Property="Height" Value="25" />
+            <Setter Property="Height" Value="30" />
             <Setter Property="Margin" Value="0,5"/>
-            <Setter Property="Background" Value="#2D2D40"/>
-            <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Padding" Value="4,2"/>
-            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#2D2D40"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="IsEditable" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <Border Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4"/>
+
+                            <Grid Margin="4,0,30,0">
+                                <TextBox x:Name="PART_EditableTextBox"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 Foreground="{TemplateBinding Foreground}"
+                                 IsReadOnly="{TemplateBinding IsReadOnly}"
+                                 VerticalContentAlignment="Center"
+                                 FontSize="{TemplateBinding FontSize}" />
+                            </Grid>
+
+                            <ToggleButton Grid.Column="1"
+                                  Focusable="false"
+                                  IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                  ClickMode="Press"
+                                  Background="Transparent"
+                                  BorderThickness="0"
+                                  HorizontalAlignment="Right"
+                                  Width="30"
+                                  Margin="0,0,4,0">
+                                <Path Fill="White" Data="M 0 0 L 4 4 L 8 0 Z" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </ToggleButton>
+
+                            <Popup Name="Popup"
+                           Placement="Bottom"
+                           IsOpen="{TemplateBinding IsDropDownOpen}"
+                           AllowsTransparency="True"
+                           Focusable="False"
+                           PopupAnimation="Slide">
+                                <Grid Name="DropDown"
+                              SnapsToDevicePixels="True"
+                              MinWidth="{TemplateBinding ActualWidth}"
+                              MaxHeight="200"
+                              Background="#2D2D40">
+                                    <Border BorderThickness="1"
+                                    BorderBrush="#444"
+                                    Background="#2D2D40" />
+                                    <ScrollViewer Margin="4"
+                                          SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True"
+                                            KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="PART_EditableTextBox" Property="Foreground" Value="Gray"/>
+                                <Setter Property="Opacity" Value="0.5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
+
     </Application.Resources>
 </Application>
