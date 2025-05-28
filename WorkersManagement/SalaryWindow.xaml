@@ -5,8 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkersManagement"
         mc:Ignorable="d"
-        Title="SalaryWindow" Height="450" Width="800">
-    <Grid>
+        Title="SalaryWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Background="#FF1E1E2E" WindowStyle="None" AllowsTransparency="True">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Height="50" Grid.ColumnSpan="2" VerticalAlignment="Top">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#FFA55EEA" Offset="0.0"/>
+                    <GradientStop Color="#FFEF5FA7" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+                <Image Source="/Assets/salary_icon.png" Width="35" Height="35" Margin="0,0,10,0"/>
+                <TextBlock Text="Salary" FontSize="24" FontWeight="Bold" Foreground="White"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Column="0" Margin="0,60,20,0">
+            <TextBlock Text="Employee ID" Foreground="Orange" Margin="10,10"/>
+            
+            <StackPanel Orientation="Horizontal" Margin="10,0,0,15">
+                <TextBox x:Name="EmpIdInput" Height="30" Style="{StaticResource PlaceholderTextBoxStyle}" Width="200" Margin="0,0,15,0"/>
+                <Button Content="Fetch Data" Click="FetchData_Click"
+                    Background="#E94560" Style="{StaticResource RoundedButtonStyle2}"/>
+            </StackPanel>
+
+            <TextBlock Text="Employee Name" Foreground="Orange" Margin="0,10"/>
+            <TextBox x:Name="EmpNameTextBlock" IsReadOnly="True" Style="{StaticResource PlaceholderTextBoxStyle}"/>
+
+            <TextBlock Text="Employee Position" Foreground="Orange" Margin="0,10"/>
+            <TextBox x:Name="EmpPositionTextBlock" IsReadOnly="True" Style="{StaticResource PlaceholderTextBoxStyle}"/>
+
+            <TextBlock Text="Worked Hours" Foreground="Orange" Margin="0,10"/>
+            <TextBox x:Name="HoursWorkedInput" Style="{StaticResource PlaceholderTextBoxStyle}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="20,80,0,70">
+            <TextBlock Text="Employee Id:" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="EmpIdOutputText" Foreground="White" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Employee Name:" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="EmpNameOutputText" Foreground="White" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Employee Position:" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="EmpPositionOutputText" Foreground="White" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Hours Worked:" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="HoursWorkedTextBlock" Foreground="White" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Hourly Salary:" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="DailySalaryTextBlock" Foreground="White" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Total Amount:" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="TotalAmountTextBlock" Foreground="White" Margin="0,0,0,10"/>
+        </StackPanel>
         
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+            <Button Content="View" Click="ViewSalary_Click"
+                    Background="#E94560" Foreground="White" Width="100" Style="{StaticResource RoundedButtonStyle2}"/>
+
+            <Button Content="Home" Click="Home_Click"
+                    Background="#E94560" Foreground="White" Width="100" Style="{StaticResource RoundedButtonStyle2}"/>
+        </StackPanel>
     </Grid>
 </Window>

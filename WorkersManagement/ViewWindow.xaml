@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WorkersManagement"
         mc:Ignorable="d"
         Title="View Employee" Height="550" Width="800"
+
         WindowStartupLocation="CenterScreen"
         Background="#FF1E1E2E" WindowStyle="None" AllowsTransparency="True">
     <Grid>
