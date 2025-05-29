@@ -75,6 +75,11 @@ namespace WorkersManagement
                 MessageBox.Show("Please fill out all fields before adding an employee.", "Missing Data", MessageBoxButton.OK, MessageBoxImage.Warning); ;
                 return;
             }
+            if (_context.Employees.Any(e => e.EmployeeId == EmpIdTextBox.Text))
+            {
+                MessageBox.Show("An employee with this ID already exists.", "Duplicate ID", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             var emp = new Employee
             {
                 EmployeeId = EmpIdTextBox.Text,
@@ -100,6 +105,19 @@ namespace WorkersManagement
             {
                 var emp = _context.Employees.FirstOrDefault(x => x.Id == selected.Id);
                 if (emp == null) return;
+
+                if (_context.Employees.Any(e => e.EmployeeId == EmpIdTextBox.Text))
+                {
+                    MessageBox.Show("An employee with this ID already exists.", "Duplicate ID", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    EmpIdTextBox.Text = string.Empty;
+                    return;
+                }
+
+                if (EmpPhoneTextBox.Text.Length != 9)
+                {
+                    MessageBox.Show("Phone number must be exactly 9 digits.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
                 emp.EmployeeId = EmpIdTextBox.Text;
                 emp.Name = EmpNameTextBox.Text;

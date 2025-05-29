@@ -48,7 +48,7 @@
                 </StackPanel>
 
                 <TextBlock Text="Employee Phone Number" Foreground="White" FontSize="12" Margin="0 10 0 0"/>
-                <TextBox x:Name="EmpPhoneTextBox" Style="{StaticResource PlaceholderTextBoxStyle}" Margin="0,5"/>
+                <TextBox x:Name="EmpPhoneTextBox" Style="{StaticResource PlaceholderTextBoxStyle}" Margin="0,5" MaxLength="9"/>
 
                 <ComboBox x:Name="EmpEducationComboBox" Text="Select an Employee Education" Style="{StaticResource StyledComboBox}">
                     <ComboBoxItem Content="BCA"/>
