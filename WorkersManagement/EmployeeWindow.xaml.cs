@@ -106,7 +106,7 @@ namespace WorkersManagement
                 var emp = _context.Employees.FirstOrDefault(x => x.Id == selected.Id);
                 if (emp == null) return;
 
-                if (_context.Employees.Any(e => e.EmployeeId == EmpIdTextBox.Text))
+                if (_context.Employees.Any(e => e.EmployeeId == EmpIdTextBox.Text && e.Id != emp.Id))
                 {
                     MessageBox.Show("An employee with this ID already exists.", "Duplicate ID", MessageBoxButton.OK, MessageBoxImage.Warning);
                     EmpIdTextBox.Text = string.Empty;

@@ -47,11 +47,9 @@ namespace WorkersManagement
                 return;
             }
 
-            // Fill in name and position
             EmpNameTextBlock.Text = currentEmployee.Name;
             EmpPositionTextBlock.Text = currentEmployee.Position;
 
-            // Determine hourly rate
             hourlyRate = GetHourlyRate(currentEmployee.Position);
         }
 
@@ -69,16 +67,14 @@ namespace WorkersManagement
                 return;
             }
 
-            // Calculate total monthly salary
             decimal totalSalary = hoursWorked * hourlyRate;
 
-            // Populate right panel
             EmpIdOutputText.Text = currentEmployee.EmployeeId;
             EmpNameOutputText.Text = currentEmployee.Name;
             EmpPositionOutputText.Text = currentEmployee.Position;
             HoursWorkedTextBlock.Text = $"{hoursWorked}";
-            DailySalaryTextBlock.Text = $"{hourlyRate:F2}"; // hourly
-            TotalAmountTextBlock.Text = $"{totalSalary:F2} Rs";
+            DailySalaryTextBlock.Text = $"{hourlyRate:F2}"; 
+            TotalAmountTextBlock.Text = $"{totalSalary:F2} zł";
         }
 
         private decimal GetHourlyRate(string position)
@@ -89,7 +85,7 @@ namespace WorkersManagement
                 "Developer" => 800m / 8,
                 "Accountant" => 850m / 8,
                 "Intern" => 400m / 8,
-                _ => 600m / 8 // default hourly
+                _ => 600m / 8 
             };
         }
 
