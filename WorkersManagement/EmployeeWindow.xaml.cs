@@ -151,6 +151,40 @@ namespace WorkersManagement
             }
         }
 
+        private void EmpPhoneTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!IsTextNumeric(e.Text))
+            {
+                e.Handled = true;
+                MessageBox.Show("Only numbers are allowed in the phone number field.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void EmpPhoneTextBox_Pasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(DataFormats.Text))
+            {
+                string text = (string)e.DataObject.GetData(DataFormats.Text);
+                if (!IsTextNumeric(text))
+                {
+                    e.CancelCommand();
+                    MessageBox.Show("Only numbers are allowed in the phone number field.", "Invalid Paste", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+            else
+            {
+                e.CancelCommand();
+                MessageBox.Show("Only numbers are allowed in the phone number field.", "Invalid Paste", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private bool IsTextNumeric(string text)
+        {
+            return text.All(char.IsDigit);
+        }
+
+
+
         private void EmployeeDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (EmployeeDataGrid.SelectedItem is Employee selected)
